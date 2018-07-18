@@ -1,0 +1,13 @@
+[
+  {
+    "id": 1,
+    "companyId": 1,
+    "carId": 1,
+    "features": [
+      {
+        "feature_name": "стереосистема",
+        "feature_value": true
+      }
+    ]
+  }
+]

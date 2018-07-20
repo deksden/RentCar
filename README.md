@@ -8,16 +8,16 @@ Simple car rent management app (WIP, not ready yet)
 
 Страна, где работает сервис
 
-* countryId
-* name
+* countryId: id
+* name: название страны
 
 ## City
 
 Город, где работает сервис
 
-* cityId
+* cityId: id
 * countryId -> Country
-* name
+* name: название города
 
 ## Party
 

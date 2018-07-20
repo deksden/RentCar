@@ -100,6 +100,9 @@ Simple car rent management app (WIP, not ready yet)
 * customerId: id
 * partyId: -> Party: ссылка на сведения о контрагенте
 
+TODO: доработать схему активации профиля клиента
+
+
 ## Service
 
 Дополнительные услуги, предоставляемые компанией
@@ -109,6 +112,7 @@ Simple car rent management app (WIP, not ready yet)
 * serviceType: ServiceType* : тип дополнительной услуги
 * caption: название услуги
 * description: описание услуги
+
 
 ## Car
 
@@ -128,17 +132,38 @@ Simple car rent management app (WIP, not ready yet)
 * featureTypeId -> FeatureType: тип опции
 * featureValue: значение опции
 
+## Currency
+
+Валюта
+
+* currencyId: id
+* name: название валюты
+* shortName: сокращенное наименование валюты
+* symbol: однобуквенный символ валюты
+
+## CurrencyRate
+
+Курсы валют
+
+* currencyRateId: id
+* currencyId: -> Currency: валюта, для которой определяем курс (например, EUR)
+* rateCurrencyId: -> Currency: валюта, в которой выражен курс (например, RUR)
+* date: дата курса
+* rate: значение курса
+* source: источник данных о курсе
+
 ## Price
 
 Цена услуги
 
 * priceId: id
 * serviceId: -> Service: сервис, к которому относится эта цена
-* startDateType: тип стартовой даты - единоразово или резулярно
-* startDateValue: значение даты
-* endDateType
-* endDateValue
+* startDateType: тип стартовой даты - единоразово или регулярно
+* startDateValue: значение стартовой даты
+* endDateType: тип финишной даты
+* endDateValue: знаение финишной даты
 * price
+* currencyId
 * description: описание
 * activeDiscounts: какие скидки действуют от этой цены
 * inactiveDiscounts: какие скидки НЕ действуют для этой цены
@@ -147,6 +172,32 @@ Simple car rent management app (WIP, not ready yet)
 
 Идея в модели цены - возможность делать расписание для цен, типа, последнее воскресенье месяца - скидки! 
 Удобно для сезонных цен - замой цена низкая, летом вырастает. 
+
+## CarBooking
+
+Сведения о бронировании автомобилей
+
+* carBookingId: id
+* carId: -> Car: выбранный для бронирования автомобиль
+* priceId: -> Price: цена, по которой бронировался автомобиль
+* customerId: -> Customer: клиент, забронировавший автомобиль
+* date: дата, когда было сделано бронирование
+* pickDate: дата, с которой нужно бронировать авто
+* pickTime: время с которого забирают авто
+* pickLocation: -> Location: место, где забирают авто
+* pickAddress: текстовое описание места 
+* dropDate:
+* dropTime:
+* dropLocation:
+* dropAddress:
+* invoiceId: заказ с перечнем услуг
+* billId: счёт за услуги
+
+Бронирование может быть связано с пакетом услуг.
+
+ 
+
+
 ____
 
 

@@ -127,6 +127,7 @@ Simple car rent management app (WIP, not ready yet)
 * carId -> Car: машина, к кторой относится опция
 * featureTypeId -> FeatureType: тип опции
 * featureValue: значение опции
+* featureURL: дополнительное описание опции
 
 ## Price
 
@@ -147,8 +148,13 @@ Simple car rent management app (WIP, not ready yet)
 
 Идея в модели цены - возможность делать расписание для цен, типа, последнее воскресенье месяца - скидки! 
 Удобно для сезонных цен - замой цена низкая, летом вырастает. 
-____
 
+## Booking
+
+Резервирование в системе
+
+* bookingId
+____
 
 # CarBase: база данных моделей автомобилей
 
@@ -156,7 +162,7 @@ ____
 
 ----
 
-## Endpoints (russian doc)
+## API Endpoints (russian doc)
 
 > GET /countries
 

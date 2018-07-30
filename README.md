@@ -85,6 +85,24 @@ Simple car rent management app (WIP, not ready yet)
 * legalCodeType: тип кода - ИНН, ОГРН, Лицензия определенного вида (перечисление LegalCodeTypes)
 * legalCodeValue: значение кода
 
+## Contact
+
+Контактная ифнормация
+
+* contactId: id
+* contactType: ContactType*: тип контактной информации (email, tel, messenger, etc)
+* caption: этикетка для контактной информации
+* contact: контактная информация (значение поля)
+* comments: примечания
+
+## PartyContact
+
+Таблица для связки контрагентов и контактной информации
+
+* partyContactId: id
+* partyId: -> Party
+* contactId: -> Contact
+
 ## Company
 
 Прокатные компании
@@ -100,6 +118,8 @@ Simple car rent management app (WIP, not ready yet)
 * customerId: id
 * partyId: -> Party: ссылка на сведения о контрагенте
 
+TODO: доработать схему активации профиля клиента
+
 ## Service
 
 Дополнительные услуги, предоставляемые компанией
@@ -109,6 +129,7 @@ Simple car rent management app (WIP, not ready yet)
 * serviceType: ServiceType* : тип дополнительной услуги
 * caption: название услуги
 * description: описание услуги
+
 
 ## Car
 
@@ -129,17 +150,38 @@ Simple car rent management app (WIP, not ready yet)
 * featureValue: значение опции
 * featureURL: дополнительное описание опции
 
+## Currency
+
+Валюта
+
+* currencyId: id
+* name: название валюты
+* shortName: сокращенное наименование валюты
+* symbol: однобуквенный символ валюты
+
+## CurrencyRate
+
+Курсы валют
+
+* currencyRateId: id
+* currencyId: -> Currency: валюта, для которой определяем курс (например, EUR)
+* rateCurrencyId: -> Currency: валюта, в которой выражен курс (например, RUR)
+* date: дата курса
+* rate: значение курса
+* source: источник данных о курсе
+
 ## Price
 
 Цена услуги
 
 * priceId: id
 * serviceId: -> Service: сервис, к которому относится эта цена
-* startDateType: тип стартовой даты - единоразово или резулярно
-* startDateValue: значение даты
-* endDateType
-* endDateValue
+* startDateType: тип стартовой даты - единоразово или регулярно
+* startDateValue: значение стартовой даты
+* endDateType: тип финишной даты
+* endDateValue: знаение финишной даты
 * price
+* currencyId
 * description: описание
 * activeDiscounts: какие скидки действуют от этой цены
 * inactiveDiscounts: какие скидки НЕ действуют для этой цены
@@ -154,7 +196,34 @@ Simple car rent management app (WIP, not ready yet)
 Резервирование в системе
 
 * bookingId
+
+## CarBooking
+
+Сведения о бронировании автомобилей
+
+* carBookingId: id
+* carId: -> Car: выбранный для бронирования автомобиль
+* priceId: -> Price: цена, по которой бронировался автомобиль
+* customerId: -> Customer: клиент, забронировавший автомобиль
+* date: дата, когда было сделано бронирование
+* pickDate: дата, с которой нужно бронировать авто
+* pickTime: время с которого забирают авто
+* pickLocation: -> Location: место, где забирают авто
+* pickAddress: текстовое описание места 
+* dropDate:
+* dropTime:
+* dropLocation:
+* dropAddress:
+* invoiceId: заказ с перечнем услуг
+* billId: счёт за услуги
+
+Бронирование может быть связано с пакетом услуг.
+
+ 
+
+
 ____
+
 
 # CarBase: база данных моделей автомобилей
 
@@ -162,7 +231,7 @@ ____
 
 ----
 
-## API Endpoints (russian doc)
+## Endpoints (russian doc)
 
 > GET /countries
 
@@ -238,3 +307,20 @@ ____
 
 # User Stories
 
+## Регистрация пользователя
+
+Пользователь создает аккаунт на сервисе через форму регистрации, вносит необходимые данные в поля форм, прикрепляет фото документов и отправляет анкету на проверку.
+
+Система проверяет анкету, и отправляет пользователю уведомление о готовности его аккаунта к работе.
+
+## Поиск бронирования
+
+Пользователь заходит на сайт системы и вводит данные в форму поиска: где нужен автомобиль, с какой даты и по какую.
+
+Система выдает список автомобилей, доступных на выбранную дату.
+
+Пользователь использует фильтры для настройки списка: выбирает класс автомобиля, тип трансмиссии и другие опции.
+
+После выбора автомобиля система предлагает пользователю забронировать его, укомплектовав дополнительными опциями: детское кресло, доп водитель, и тп.
+
+Пользовтаель выбирает место передачи, 

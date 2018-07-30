@@ -1,0 +1,13 @@
+[
+  {
+    "addressId": "address1",
+    "countryId": "country1",
+    "countryRegion": "Some Oblaast",
+    "cityId": "city1",
+    "district": "central disctrict",
+    "street": "Some",
+    "building": "14",
+    "office": "123",
+    "comment": "Central oofice for SomeCompany"
+  }
+]

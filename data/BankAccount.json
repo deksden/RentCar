@@ -1,0 +1,10 @@
+[
+  {
+    "bankAccountId": "acc1",
+    "bankId": "bank1",
+    "partyId": "party2",
+    "accountCurrency": "RUR",
+    "accountType": "current",
+    "accountNo": "407028000001"
+  }
+]

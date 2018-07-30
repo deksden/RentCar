@@ -1,0 +1,8 @@
+[
+  {
+    "carId": "car1",
+    "carBaseCarId": "bc1",
+    "ownerId": "c1",
+    "rentService": "prod1"
+  }
+]

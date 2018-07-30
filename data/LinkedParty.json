@@ -1,0 +1,9 @@
+[
+  {
+    "linkedPartyId": 1,
+    "partyId": "party2",
+    "linkedId": "party1",
+    "linkType": "CEO",
+    "description": ""
+  }
+]

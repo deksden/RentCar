@@ -1,0 +1,9 @@
+[
+  {
+    "carFeatureId": "cf1",
+    "carId": "car1",
+    "featureType": "transmission",
+    "featureValue": "AT",
+    "featureURL": ""
+  }
+]

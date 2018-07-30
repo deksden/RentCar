@@ -1,0 +1,9 @@
+[
+  {
+    "productId": "prod1",
+    "companyId": "c1",
+    "productType": "Service",
+    "caption": "Car Rent",
+    "description": "Per-day car renting service"
+  }
+]

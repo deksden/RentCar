@@ -1,0 +1,34 @@
+[
+  {
+    "partyId": "party1",
+    "partyType": "Person",
+    "legalType": "JustPerson",
+    "fullName": "Иванов Иван Иванович",
+    "shortName": "И.И. Иванов",
+    "akaName": ""
+  },
+  {
+    "partyId": "party2",
+    "partyType": "Company",
+    "legalType": "OOO",
+    "fullName": "SomeCompany",
+    "shortName": "",
+    "akaName": "GoodCar.rent"
+  },
+  {
+    "partyId": "party3",
+    "partyType": "Bank",
+    "legalType": "AO",
+    "fullName": "BigBank",
+    "shortName": "BB",
+    "akaName": "BB (tm)"
+  },
+  {
+    "partyId": "party4",
+    "partyType": "Person",
+    "legalType": "JustPerson",
+    "fullName": "John Smith",
+    "shortName": "",
+    "akaName": ""
+  }
+]

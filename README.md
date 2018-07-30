@@ -33,6 +33,7 @@ Simple car rent management app (WIP, not ready yet)
 * addresses: [ PartyAddress ] : массив адресов контрагента (юридический, главный офис, филиалы и тп)
 * management
 * linkedParties: [ LinkedParty ]
+* comments: примечания
 
 ## Address 
 
@@ -64,18 +65,25 @@ Simple car rent management app (WIP, not ready yet)
 
 * linkedPartyId: id
 * partyId: -> Party: контрагент
-* linkedPartyId: -> Party: ссылка на связанного контрагента
+* linkedId: -> Party: ссылка на связанного контрагента
 * linkType: PartyLinkType*: вид связи
 * description: текстовое описание связи
+
+## Bank
+
+Банк
+
+* bankId: id
+* partyId: -> Party: контрагент со сведениями о банке
+* codes: BankCodes: коды банка (БИК, к/счёт и тп)
 
 ## BankAccount
 
 * bankAccountId: id
+* bankId: -> Bank: ссылка на банк в базе контрагентов
 * partyId: -> Party: ссылка на контрагента, к которому относится банковский счёт
-* bankId: -> Party: ссылка на банк в базе контрагентов
-* bankCode: БИК код, SWIFT и тп
 * accountCurrency: валюта счетёта (RUR, USD, EUR, etc)
-* accountCaption: описасние счёта (расчетный, для банков - корр счёт  и тп)
+* accountType: AccountType*: описасние счёта (расчетный, депозитный, транзитный, корр счёт и тп)
 * accountNo: номер счёта
  
 ## LegalCode
@@ -85,7 +93,7 @@ Simple car rent management app (WIP, not ready yet)
 * legalCodeType: тип кода - ИНН, ОГРН, Лицензия определенного вида (перечисление LegalCodeTypes)
 * legalCodeValue: значение кода
 
-## Contact
+## Contact (* not yet)
 
 Контактная ифнормация
 
@@ -95,7 +103,7 @@ Simple car rent management app (WIP, not ready yet)
 * contact: контактная информация (значение поля)
 * comments: примечания
 
-## PartyContact
+## PartyContact (*)
 
 Таблица для связки контрагентов и контактной информации
 
@@ -105,12 +113,28 @@ Simple car rent management app (WIP, not ready yet)
 
 ## Company
 
-Прокатные компании
+Компании
  
 * companyId: id
-* companyType
 * partyId: -> Party: ссылка на сведения о контрагенте для этой прокатной компании
-* defAccountId: -> BankAccount: основной банковский счёт, который использует компания по-умолчанию в документах
+* companyType: тип компании
+* bankAccountId: -> BankAccount: основной банковский счёт, который использует компания по-умолчанию в документах
+
+## Group
+
+Группы (разного назначения)
+
+* groupId: id
+* groupType: тип группы
+* caption: название группы
+
+## PartyGroup
+
+Связка Групп и Контрагентов
+
+* partyGroupId: id
+* groupId: -> Group: 
+* partyId: -> Party
 
 ## Customer
 
@@ -140,17 +164,17 @@ TODO: доработать схему активации профиля клие
 * ownerId -> Company
 * rentService: -> Service: ссылка на тип услуги, описывающей арендную стоимость автомобиля
 
-## CarFeatures
+## CarFeature
 
 Опции данного автомобиля (отличия от базовой комплектации, зарегистрированной для CarBaseCar)
 
 * carFeatureId: id
 * carId -> Car: машина, к кторой относится опция
-* featureTypeId -> FeatureType: тип опции
+* featureType: FeatureType*: тип опции
 * featureValue: значение опции
 * featureURL: дополнительное описание опции
 
-## Currency
+## Currency (*)
 
 Валюта
 
@@ -159,7 +183,7 @@ TODO: доработать схему активации профиля клие
 * shortName: сокращенное наименование валюты
 * symbol: однобуквенный символ валюты
 
-## CurrencyRate
+## CurrencyRate (*)
 
 Курсы валют
 
@@ -170,7 +194,7 @@ TODO: доработать схему активации профиля клие
 * rate: значение курса
 * source: источник данных о курсе
 
-## Price
+## Price <--
 
 Цена услуги
 
@@ -233,9 +257,6 @@ TODO: доработать схему активации профиля клие
 * billDetailId: id
 * billId: -> Bill: счёт, ко ромку относитсяп запись
 * priceId: -> Price: цена, по которой выставляется счёт
-
- 
-
 
 ____
 

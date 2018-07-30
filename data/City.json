@@ -1,7 +1,7 @@
 [
   {
-    "id": 1,
-    "countryId": 1,
-    "name": "Novosibirsk"
+    "id": "city1",
+    "countryId": "country1",
+    "name": "NskCity"
   }
 ]

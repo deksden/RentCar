@@ -5,5 +5,19 @@
     "featureType": "transmission",
     "featureValue": "AT",
     "featureURL": ""
+  },
+  {
+    "carFeatureId": "cf2",
+    "carId": "car1",
+    "featureType": "fuel",
+    "featureValue": "gasoline",
+    "featureURL": ""
+  },
+  {
+    "carFeatureId": "cf2",
+    "carId": "car1",
+    "featureType": "engineVolume",
+    "featureValue": "1.6",
+    "featureURL": ""
   }
 ]

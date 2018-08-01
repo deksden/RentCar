@@ -3,6 +3,8 @@
     "carId": "car1",
     "carBaseCarId": "bc1",
     "ownerId": "c1",
-    "rentService": "prod1"
+    "rentService": "prod1",
+    "carYear": "2018",
+    "color": "white"
   }
 ]

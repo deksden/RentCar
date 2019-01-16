@@ -1,4 +1,4 @@
-# API Endpoints
+# Domain-specific API
 
 ## Generic API URL:
 

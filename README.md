@@ -5,11 +5,11 @@ Car rent management app (WIP, not ready yet)
 ## Documentation
 
 * System: 
-    * [models](system-models.md)
-    * [API](system-api.md)
+    * [models](system/system-models.md)
+    * [API](system/system-api.md)
 * Domain-specific:
-    * [models](domain-models.md)
-    * [API](domain-api.md)
+    * [models](domain-specific/domain-models.md)
+    * [API](domain-specific/domain-api.md)
 
 ----
 

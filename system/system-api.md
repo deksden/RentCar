@@ -1,5 +1,16 @@
 # System API
 
+## Generic URL format
+
+{server address}/api/{version}/{method}?options
+
+### Options for list queries
+
+* pagination 
+* sort
+* filter
+* query
+
 ### ACL routes:
 
 > GET /acl/user/:userId
